@@ -1,4 +1,4 @@
-GameScene scene;
+class GameScene scene;
 
 
 void setup(){
