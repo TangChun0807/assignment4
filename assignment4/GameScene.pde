@@ -1,8 +1,4 @@
-class GameScene scene;
-
-
-void setup(){
- class GameScene{
+class GameScene{
   void display(){
     // the dust ground 
     noStroke();
