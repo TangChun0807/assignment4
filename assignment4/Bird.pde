@@ -27,7 +27,8 @@ class Bird{
   
   
   void display() {
-    text(state, position.x, position.y);
+    fill(0);
+    text(state, position.x , position.y);
     
   }
   
