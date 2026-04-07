@@ -3,12 +3,18 @@ class Bird{
   PVector position;
   PVector velocity;
   PVector acceleration;
+  int spawnTime;
+  int durationTime;
+ 
   
   Bird( ){
     state = 1;
     position = new PVector(random(0, 400), 220);
-    velocity = new PVector(random(-5, 5), random(-10, -5));
+    velocity = new PVector(random(-5,5), random(-10, -5));
     acceleration = new PVector(0, 0);
+    spawnTime = millis();
+    durationTime = 5000;
+    
     
   }
   
@@ -16,24 +22,56 @@ class Bird{
      if(state == 1){
       if(velocity.x < 0){
         state = 2; 
-      }else{
-        state = 3;
-      }
       }
       
-      if( state == 2){
+      if(velocity.x > 0){
+        state = 3;
+      }
+      
+      }
+      
+       else if( state == 2){
+        
+        if(mousePressed){
+          
+          state = 5;
+          velocity.y = 0;
+        }
+        
+        
+        if(millis() - spawnTime > durationTime){
+          state = 4;
+        }
+        
         if(position.y > 220){
           velocity.y = -velocity.y;
         }
+        
+        if(position.y < 0){
+          velocity.y = -velocity.y;
+        }
+        
         
         if(position.x < 0){
           velocity.x = -velocity.x;
           state = 3;
         }
         
-      }
+     
+       }
       
-      if ( state == 3){
+      else if ( state == 3){
+        
+         if(mousePressed){
+          
+           state = 5;
+           velocity.y = 0;
+        }
+        
+        if(millis() - spawnTime > durationTime){
+          state = 4;
+        }
+        
         if(position.y > 220){
           velocity.y = -velocity.y;
           
@@ -48,8 +86,23 @@ class Bird{
         }
       }
       
+      else if(state == 4){
+        velocity.x = 0;
+        velocity.y = -1;
+        
+      }
       
-      position.x = position.x + velocity.y;
+      else if(state == 5){
+          velocity.x = 0;
+        
+    
+        
+        acceleration.x = 0;
+        acceleration.y = 0.2;
+      }
+      
+      
+      position.x = position.x + velocity.x;
       position.y = position.y + velocity.y;
       velocity.x = velocity.x + acceleration.x;
       velocity.y = velocity.y + acceleration.y;
