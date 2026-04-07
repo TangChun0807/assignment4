@@ -17,13 +17,19 @@ class Bird{
       if(velocity.x < 0){
         state = 2; 
       }else{
-      if(velocity.x < 0){
         state = 3;
       }
       }
+      
+      position.x = position.x + velocity.y;
+      position.y = position.y + velocity.y;
+      velocity.x = velocity.x + acceleration.x;
+      velocity.y = velocity.y + acceleration.y;
+      
     }
+   
     
-  }
+  
   
   
   void display() {
