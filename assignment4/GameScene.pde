@@ -1,6 +1,7 @@
 class GameScene{
   void display(){
     // the dust ground 
+    background(135,206,250);
     noStroke();
     fill(158,145,92);
     rect(0,280,400,120);

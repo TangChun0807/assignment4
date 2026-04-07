@@ -7,7 +7,7 @@ class Bird{
   Bird( ){
     state = 1;
     position = new PVector(random(0, 400), 220);
-    velocity = new PVector(random(-5, 5), random(10, -5));
+    velocity = new PVector(random(-5, 5), random(-10, -5));
     acceleration = new PVector(0, 0);
     
   }
@@ -20,6 +20,34 @@ class Bird{
         state = 3;
       }
       }
+      
+      if( state == 2){
+        if(position.y > 220){
+          velocity.y = -velocity.y;
+        }
+        
+        if(position.x < 0){
+          velocity.x = -velocity.x;
+          state = 3;
+        }
+        
+      }
+      
+      if ( state == 3){
+        if(position.y > 220){
+          velocity.y = -velocity.y;
+          
+        }
+        if(position.y < 0){
+          velocity.y = -velocity.y;
+        }
+        
+        if (position.x > 400){
+          velocity.x = -velocity.x;
+          state = 2;
+        }
+      }
+      
       
       position.x = position.x + velocity.y;
       position.y = position.y + velocity.y;
@@ -34,7 +62,7 @@ class Bird{
   
   void display() {
     fill(0);
-    text(state, position.x , position.y);
+    text(state,position.x , position.y);
     
   }
   
