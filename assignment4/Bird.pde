@@ -82,6 +82,7 @@ class Bird{
           state = 0;
          
       }
+      }
       
       
       //The brid will fall down with the gravity based on state = 5 
@@ -144,17 +145,118 @@ class Bird{
       
     }
    
+     void display() {
     
-  
-  
-  
-  void display() {
-    fill(0);
-    text(state,position.x , position.y);
+    //State 2 the bird will fly to left
+    if(state == 2){
+   // draw the bird to left position
+   //set color to yellow
+   fill(255, 255, 0);
+   //draw the main head facing right
+   rect(position.x , position.y - 10 ,-10,10);
+   //draw the body facing left
+   rect(position.x  + 10 , position.y, -20, 10);
+   //set color to red
+   fill(255,0,0);
+   //draw the beak pointing left
+   triangle(-10 + position.x, position.y - 10 , -10 + position.x, position.y  , -20 + position.x, position.y );
+   //set color to the green
+   fill(0,255,0);
+   //draw the  wing
+   triangle( position.x, position.y, position.x + 10, 5 + position.y, position.x, 10 + position.y);
+   //set color to black
+   fill(0);
+   //draw the eyes 
+   ellipse(-5 + position.x, position.y - 5 , 5, 5);
     
   }
+    
+    
+    //State 3 the bird will fly to right
+    if(state == 3){
+   //set color to yellow
+  fill(255, 255, 0);
+  //draw the main head facing right 
+   rect(position.x , position.y - 10 ,10,10);
+    //draw the body facing to right 
+   rect(position.x - 10 , position.y, 20, 10);
+   //set color to red
+   fill(255,0,0);
+   //draw the beak pointing to right
+   triangle(10 + position.x, position.y - 10 , 10 + position.x, position.y  , 20 + position.x, position.y );
+   //set to green 
+   fill(0,255,0);
+   //draw the wing
+   triangle( position.x, position.y, position.x - 10, 5 + position.y, position.x, 10 + position.y);
+   //set to black 
+   fill(0);
+   //set the eye
+   ellipse(5 + position.x, position.y - 5 , 5, 5);
+     
+      
+      
+    }
+    
+    // state 4 the bird fly away
+    if(state == 4){
+    //set to yellow 
+    fill(255, 255, 0);
+   //draw the head
+   rect(0 + position.x - 10 ,10 + position.y - 10,10,10);
+   //set to red
+   fill(255,0,0);
+   //draw the break
+   triangle(0 + position.x -10 ,10  + position.y - 10 ,5 + position.x -10 ,0+ position.y - 10 ,10 + position.x - 10 ,10 + position.y - 10);
+   //set to black 
+   fill(0);
+   //draw the eye
+   ellipse(5 + position.x - 10 ,15 + position.y - 10 ,5,5);
+   //set to green
+   fill(0,255,0);
+   //draw the wings 
+   triangle(10  + position.x - 10,10  + position.y - 10 ,10 + position.x - 10,20 + position.y - 10,20  + position.x - 10,20 + position.y - 10 );  
+   triangle(-10  + position.x - 10 + 10 , 10  + position.y - 10 , -10 + position.x - 10 + 10 ,20 + position.y - 10, -20  + position.x - 10 + 10,20 + position.y - 10 );  
+      
+      
+    }
+    
+    //state 5 the bird falling down 
+    if(state == 5){
+    //set to yellow
+   fill(255, 255, 0);
+   //draw the head
+   rect(0 + position.x - 10 ,10 + position.y - 10,10,10);
+   //set color to red
+   fill(255,0,0);
+   // draw the beak 
+   triangle(0 + position.x -10 ,20 + position.y - 10 ,5 + position.x -10 ,25 + position.y, 10 + position.x -10, 20 + position.y - 10);
+   //set to black
+   fill(0);
+   // draw the eyes 
+   ellipse(5 + position.x -10 ,15 + position.y - 10, 5, 5);
+
+      
+    }
+ 
+    
+    
+    
+  
+   
+   
+ }
+    
+    
   
   
   
+
+   
   
-}
+
+    
+    
+    
+  
+   
+   
