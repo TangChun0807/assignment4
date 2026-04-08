@@ -1,12 +1,14 @@
 class GameScene{
+  
+  //define the game scene display function and use it to the main program 
   void display(){
-    // the dust ground 
+    // draw the dust groun of the game scene
     background(135,206,250);
     noStroke();
     fill(158,145,92);
     rect(0,280,400,120);
     
-    //the left Tree
+    // Draw the left tree of the game scene
     fill(160,126,113);
     rect(40,190,40,90);
     fill(46,111,64);
@@ -14,17 +16,19 @@ class GameScene{
     quad(10,120,50,70,70,70,110,120);
     triangle(30,70,60,20,90,70);
     
-    //the right tree
+    // Draw the right tree of the game scene
     fill(160,126,113);
     rect(360,190,50,90);
     fill(46,111,64);
     quad(320,190,360,120,400,120,400,190);
+    quad(330,120,400,120,400,70,380,70);
+    triangle(350, 70, 400, 70, 400, 20);
     
    
    
     
     
-    //the grass
+    // draw the grass for the game scene 
     fill(65,152,10);
     triangle(0,280,30,220,60,280);
     triangle(60,280,90,220,120,280);

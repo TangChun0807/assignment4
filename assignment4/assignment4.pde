@@ -1,5 +1,4 @@
 
-//hello world
 GameScene scene;
 Bird bird;
 

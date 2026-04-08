@@ -30,27 +30,7 @@ class Bird{
       
       }
       
-       else if( state == 2){
-        
-        if(mousePressed){
-          
-          state = 5;
-          velocity.y = 0;
-        }
-        
-        
-        if(millis() - spawnTime > durationTime){
-          state = 4;
-        }
-        
-        if(position.y > 220){
-          velocity.y = -velocity.y;
-        }
-        
-        if(position.y < 0){
-          velocity.y = -velocity.y;
-        }
-        
+        if( state == 2){
         
         if(position.x < 0){
           velocity.x = -velocity.x;
@@ -60,25 +40,7 @@ class Bird{
      
        }
       
-      else if ( state == 3){
-        
-         if(mousePressed){
-          
-           state = 5;
-           velocity.y = 0;
-        }
-        
-        if(millis() - spawnTime > durationTime){
-          state = 4;
-        }
-        
-        if(position.y > 220){
-          velocity.y = -velocity.y;
-          
-        }
-        if(position.y < 0){
-          velocity.y = -velocity.y;
-        }
+      if ( state == 3){
         
         if (position.x > 400){
           velocity.x = -velocity.x;
@@ -86,17 +48,17 @@ class Bird{
         }
       }
       
-      else if(state == 4){
+      
+      if(state == 4){
         velocity.x = 0;
         velocity.y = -1;
         
       }
       
-      else if(state == 5){
-          velocity.x = 0;
-        
-    
-        
+      
+      
+      if(state == 5){
+         velocity.x = 0;
         acceleration.x = 0;
         acceleration.y = 0.2;
       }
