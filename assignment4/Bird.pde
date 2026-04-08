@@ -95,8 +95,46 @@ class Bird{
       }
       }
       
-      
-      
+      // if state 2 or state 3 will run this part, I made this part like this because they have similar function. Also I don't write two times 
+      //for state 2 and state 3
+       if(state == 2 || state == 3){
+        //during mouse pressed and the mouse is close enough to the bird ( bird's hitbox)
+        if(mousePressed && ((position.x - mouseX) * (position.x - mouseX) + (position.y - mouseY) * (position.y - mouseY)) < 15 * 15){
+          
+          //it will change the bird's state to 5 
+           state = 5;
+           //stop any vertical movment immediately after getting shot by the players 
+           velocity.y = 0;
+           
+           //store the current time to control how long the bird's dead animation stay 
+           endTime = millis();
+           
+           
+        }
+        
+        // check if the bird has existed longer than the allowed duration
+        if(millis() - spawnTime > durationTime){
+          
+          //make the bird state to four and let the bird fly away
+          state = 4;
+          
+          //store the current time to control the flyaway animation
+          endTime = millis();
+        }
+        
+        //check if the birds hit the bounce line 
+        if(position.y > 220){
+          velocity.y = -velocity.y;
+          
+        }
+        
+        //check the birds hit the top of the screen 
+        if(position.y < 0){
+          velocity.y = -velocity.y;
+        }
+        
+        
+      }
       
       
       position.x = position.x + velocity.x;
