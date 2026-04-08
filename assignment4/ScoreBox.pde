@@ -1,8 +1,10 @@
 class ScoreBox{
+  //Stores the score value 
   int count;
+  //define which types of score for the box represents
   int type;
   
-  
+  //constructor for the ScoreBox 
   ScoreBox(int a, int b){
     
     count = a;
@@ -10,17 +12,21 @@ class ScoreBox{
  
 }
   
+  //update the function based on the score type 
   void update(){
+   // if the type equals to 1 the bullet will subtract 1 during shooting 
    if(type == 1){
      count--;
      
    }
    
+   // if the type equals to 2 the bird killed will increase if the player sucess to shoot the bird
    if(type == 2){
      
      count++;
    }
    
+   // if the type equlas to 3 the bird fly away will increas 1 if the bird doesn't get killed in 5 seconds 
    if(type == 3){
      
      count++;
