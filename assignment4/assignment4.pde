@@ -1,9 +1,14 @@
 //Create the game scene for the game 
 GameScene scene;
+//Set up the array list to stroe the bird
 ArrayList<Bird> birds;
+//to set up the bullet box
 ScoreBox bulletBox;
+//set up the bird killed box 
 ScoreBox birdKillBox;
+//set up the bird flay away box
 ScoreBox birdFlyAwayBox;
+//Prevents holding the mouse from counting as many clicks like the penguins killer
 boolean clickLock = false;
 int birdCount = 0;
 Bird currentBird;
