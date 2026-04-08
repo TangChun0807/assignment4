@@ -10,21 +10,32 @@ ScoreBox birdKillBox;
 ScoreBox birdFlyAwayBox;
 //Prevents holding the mouse from counting as many clicks like the penguins killer
 boolean clickLock = false;
+//Set the bird count varaible to keep track of which bird in the list is currently flying on the screen
 int birdCount = 0;
+//The bird current flying on the screen
 Bird currentBird;
+//Checks the game is that over 
 boolean gameIsOver = false;
 
 
 
 
 void setup(){
+  //set the canvas size to 400 x 400 
   size(400,400);
+  //Create the game scene
   scene = new GameScene();
+  //set up the bullet box starte from 10 bullets and set to type 1 
    bulletBox = new ScoreBox(10,1);
+  //set up the bird kill start from 0 kills and set to type 2 
   birdKillBox = new ScoreBox(0,2);
+  //set yp the bird fly away box start from 0 fly away and set to type 3 
   birdFlyAwayBox = new ScoreBox(0,3);
+  //Creadte the bird list 
   birds = new ArrayList<Bird>();
+  //Hide the mouse cursor from the game screen 
   noCursor();
+  
   
   Bird a = new Bird();
   Bird b = new Bird();
