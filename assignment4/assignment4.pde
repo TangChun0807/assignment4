@@ -174,43 +174,51 @@ if(gameIsOver == true){
 } //else
 
 
-
+//draw the corsshair 
 void drawCrosshair(float x, float y) {
   stroke(255,0,0);
   strokeWeight(2);
   noFill();
 
-  // circle
+  // draw circle
   ellipse(x, y, 30, 30);
 
-  // vertical line 
+  // draw horizontal line for the corsshair
   line(x - 15, y, x + 15, y);
 
-  // vertical line
+  // draw the vertical line for the corsshair 
   line(x, y - 15, x, y + 15);
 }
 
-
+//Reset everything for a new game 
 void restartGame(){
+  //reset the bird count to zero
   birdCount = 0;
+  //Make the game is over off
   gameIsOver = false;
+  // reset the clicklock 
   clickLock = false;
-
+  
+  //reset all the score box 
   bulletBox = new ScoreBox(10,1);
   birdKillBox = new ScoreBox(0,2);
   birdFlyAwayBox = new ScoreBox(0,3);
 
+  //clear all the old birds from the array list 
   birds.clear();
 
   
+  //create new 10 birds and add them to the list 
   for(int i = 0; i < 10; i++){
     birds.add(new Bird());
   }
-
+  
+  //set first bird as the current bird
   currentBird = birds.get(0);
 }
 
 
+//when mousePressed will restart the game
 void mousePressed(){
   if(gameIsOver){
     restartGame();
@@ -219,6 +227,7 @@ void mousePressed(){
 }
 
 
+//draw the happy face for game over screen
 void drawHappyFace(float x, float y, float s){
   fill(255, 220, 0);
   ellipse(x, y, s, s); // face
