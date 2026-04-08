@@ -50,9 +50,10 @@ class Bird{
       
       }
       
-      
+      //Bird will flying to left direction based on the state = 2 
         if( state == 2){
         
+        // Here is checking when bird hit left wall to bounce to other direction and switch to right direction 
         if(position.x < 0){
           velocity.x = -velocity.x;
           state = 3;
@@ -60,6 +61,8 @@ class Bird{
         
      
        }
+       
+     
       
       if ( state == 3){
         
