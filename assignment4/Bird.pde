@@ -1,5 +1,5 @@
 class Bird{
-  //The bird current state (0 = disapper (nothing happened), 1 = decide the direction of the bird, 2 = flying left side
+  //The bird current state (0 = disapper , 1 = decide the direction of the bird, 2 = flying left side
   //, 3 = flying right side, 4 = fly away to the top screen, 5 = bird going down to the screen)
   int state;
   //The position of the bird
@@ -63,29 +63,40 @@ class Bird{
        }
        
      
-      
+      //Bird will flying to right direction based on the state = 3 
       if ( state == 3){
-        
+        // Here is checking when brid hit right wall to bounce to other direction and switch to left direction 
         if (position.x > 400){
           velocity.x = -velocity.x;
           state = 2;
         }
       }
       
-      
+      //Birds will slowly goes up based on the state = 4 
       if(state == 4){
         velocity.x = 0;
         velocity.y = -1;
         
+        //After 2 seconds the bird will disapper (state 0 )
+        if(millis() - endTime >  2000){
+          state = 0;
+         
       }
       
       
-      
+      //The brid will fall down with the gravity based on state = 5 
       if(state == 5){
          velocity.x = 0;
         acceleration.x = 0;
         acceleration.y = 0.2;
+        //after 3 seconds the bird will fall down and disappear 
+         if(millis() - endTime >  3000){
+          state = 0;
       }
+      }
+      
+      
+      
       
       
       position.x = position.x + velocity.x;
