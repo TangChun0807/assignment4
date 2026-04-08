@@ -34,8 +34,12 @@ class Bird{
     
   }
   
+  //defined a update function to control the bird's state, animation, and the movement
   void update(){
+    
+     // decide the direction of the bird
      if(state == 1){
+      // check the velortiy, if velocity x < 0 it will go left,  otherways velocity x > 0 it will go right
       if(velocity.x < 0){
         state = 2; 
       }
@@ -45,6 +49,7 @@ class Bird{
       }
       
       }
+      
       
         if( state == 2){
         
