@@ -136,10 +136,14 @@ class Bird{
         
       }
       
-      
+      //Here is update the bird's position based on it's velociy
+      // position x moved by left and right based on the velocity x 
       position.x = position.x + velocity.x;
+      //position y moves up and down depends on the velocity y 
       position.y = position.y + velocity.y;
+      // update the horizontal veloicty 
       velocity.x = velocity.x + acceleration.x;
+      //update the velocity velocity 
       velocity.y = velocity.y + acceleration.y;
       
     }
