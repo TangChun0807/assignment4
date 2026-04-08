@@ -36,7 +36,7 @@ void setup(){
   //Hide the mouse cursor from the game screen 
   noCursor();
   
-  
+  //Create 10 birds 
   Bird a = new Bird();
   Bird b = new Bird();
   Bird c = new Bird();
@@ -48,6 +48,7 @@ void setup(){
   Bird i = new Bird();
   Bird j = new Bird();
   
+  //add the 10 birds to the array list 
   birds.add(a);
   birds.add(b);
   birds.add(c);
@@ -59,71 +60,86 @@ void setup(){
   birds.add(i);
   birds.add(j);
   
+  //set the currentbird starts with the first bird in the list 
   currentBird = birds.get(birdCount);
   
   
 }
 
-void draw(){
-   
-if(gameIsOver == true){
-  background(135,206,250);
 
+void draw(){
+
+// if the game is over, shows the game over screen below 
+if(gameIsOver == true){
+  //set the background to the sky blue color for gameover screen 
+  background(135,206,250);
+//draw the happy face on center of the gameover screen 
   drawHappyFace(width/2, height/2 - 20, 60);
 
+  //draw the restart test on the center of the gameover screen 
   fill(0);
   textAlign(CENTER, CENTER);
   textSize(16);
   text("Click to Restart", width/2, height/2 + 40);
 
+  //Stop the rest of draw function from running 
   return;
 }
   
   
+  //if the game is not nover will run the below
   else{
   
 
  
-    
+  // draw the game UI screen
+  //draw the scene
   scene.display();
- 
+  //draw the bullet box
   bulletBox.display();
+  //draw the bird killed box
   birdKillBox.display();
+  //draw the bird fly away box
   birdFlyAwayBox.display();
   
 
  
  
    
-   
+   //if the current bird finished the animation and the state is zero 
    if(currentBird.state == 0){
+     //if player kill six bird, the game will over 
      if(birdKillBox.count >= 6){
          gameIsOver = true;
        
      }
      
       
-     
+     // If there still more birds in the list 
      if(birdCount < birds.size()-1){
+     //Move to the next bird, then bird count + 1 
      birdCount++;
+     //Set the next bird as the cureent bird
      currentBird = birds.get(birdCount);
+     //Reset the spawn time 
      currentBird.spawnTime = millis();
      
-     
+   //if there has no birds left game over 
    }else{
      gameIsOver = true;
    }
    }
    
-   
+   //if bullets ran out gamer over 
    if(bulletBox.count <= 0){
        gameIsOver = true;
      }
   
    
    
-   
+   //update the current bird movement 
    currentBird.update();
+   //update the bird display animation 
    currentBird.display();
  
 
@@ -131,27 +147,29 @@ if(gameIsOver == true){
 
  
  
-  
+  //if the mouse is pressed and clicklock is false
   if(mousePressed && clickLock == false){
+    //use one bullet
     bulletBox.update();
+    //lock the bullet only -1 each time 
     clickLock = true;
 }
 
 
-
+ // When mouse is released, unlock clicking
  if(!mousePressed){
   
   clickLock = false;
 }
 
-
+// Draw crosshair based on the mouseX and mouseY
  drawCrosshair(mouseX, mouseY);
  
  
  
 }
  
-drawCrosshair(mouseX, mouseY);
+
 
 } //else
 
