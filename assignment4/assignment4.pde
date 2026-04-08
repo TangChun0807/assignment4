@@ -1,4 +1,4 @@
-
+//Create the game scene for the game 
 GameScene scene;
 ArrayList<Bird> birds;
 ScoreBox bulletBox;
