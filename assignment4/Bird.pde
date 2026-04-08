@@ -1,4 +1,6 @@
 class Bird{
+  //The bird current state (0 = disapper (nothing happened), 1 = decide the direction of the bird, 2 = flying left side
+  //, 3 = flying right side, 4 = fly away to the top screen, 5 = bird going down to the screen)
   int state;
   PVector position;
   PVector velocity;
