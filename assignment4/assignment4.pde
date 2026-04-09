@@ -229,13 +229,20 @@ void mousePressed(){
 
 //draw the happy face for game over screen
 void drawHappyFace(float x, float y, float s){
+  //set yellow to the face
   fill(255, 220, 0);
-  ellipse(x, y, s, s); // face
-
+  //draw the happy face 
+  ellipse(x, y, s, s); 
+  
+  //set color to the eyes
   fill(0);
-  ellipse(x - 10, y - 10, 8, 8); // left eye
-  ellipse(x + 10, y - 10, 8, 8); // right eye
-
+  //draw the left eye of the happy face
+  ellipse(x - 10, y - 10, 8, 8); 
+  // draw the right eye of the happy face 
+  ellipse(x + 10, y - 10, 8, 8); 
+  
+  //set smile to no fill
   noFill();
-  arc(x, y + 5, 20, 15, 0, PI); // smile
+  //draw the smile
+  arc(x, y + 5, 20, 15, 0, PI); 
 }
